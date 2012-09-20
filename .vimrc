@@ -61,6 +61,13 @@ au BufReadPost * if line ("'\"") > 1 && line("'\"") <= line("$") | exe "normal! 
 call pathogen#infect()
 call pathogen#helptags()
 
+"let g:neocomplcache_enable_at_startup = 1
+"let g:neocomplcache_enable_smart_case = 1
+"let g:neocomplcache_enable_camel_case_completion = 1
+"let g:neocomplcache_enable_underbar_completion = 1
+"let g:neocomplcache_min_syntax_length = 2
+"let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+
 if match(system('lsb_release -is'), "Ubuntu") != -1
   let g:ackprg="ack-grep -H --column"
 endif
