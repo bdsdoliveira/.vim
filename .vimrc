@@ -61,12 +61,16 @@ au BufReadPost * if line ("'\"") > 1 && line("'\"") <= line("$") | exe "normal! 
 call pathogen#infect()
 call pathogen#helptags()
 
-"let g:neocomplcache_enable_at_startup = 1
-"let g:neocomplcache_enable_smart_case = 1
-"let g:neocomplcache_enable_camel_case_completion = 1
-"let g:neocomplcache_enable_underbar_completion = 1
+set omnifunc=syntaxcomplete#Complete
+set completeopt=menuone,menu,longest,preview
+"inoremap <C-?> <C-x><C-o>
+
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_underbar_completion = 1
 "let g:neocomplcache_min_syntax_length = 2
-"let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
 if match(system('lsb_release -is'), "Ubuntu") != -1
   let g:ackprg="ack-grep -H --column"
@@ -84,6 +88,7 @@ let g:EasyMotion_leader_key = "<leader>"
 autocmd FileType tex let b:surround_105 = "\\textit{\r\}"
 autocmd FileType tex let b:surround_98 = "\\textbf{\r\}"
 autocmd FileType tex let b:surround_115 = "\\textsc{\r\}"
+autocmd FileType tex let b:surround_{char2nr("p")} = "\\begin{figure\}\[p\]\n\\begin{center\}\r\\end{center\}\n\\end{figure\}"
 
 "let mapleader = ","
 nnoremap ; :
