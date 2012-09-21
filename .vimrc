@@ -92,5 +92,5 @@ autocmd FileType tex let b:surround_{char2nr("p")} = "\\begin{figure\}\[p\]\n\\b
 
 "let mapleader = ","
 nnoremap ; :
-cnoremap w!! w !sudo tee % >/dev/null
+cnoremap W w sudo:%
 nnoremap <C-p> :set invpaste paste?<CR>
