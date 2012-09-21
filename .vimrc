@@ -68,9 +68,9 @@ set completeopt=menuone,menu,longest,preview
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_camel_case_completion = 1
-let g:neocomplcache_enable_underbar_completion = 1
+"let g:neocomplcache_enable_underbar_completion = 1
 "let g:neocomplcache_min_syntax_length = 2
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+"let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
 if match(system('lsb_release -is'), "Ubuntu") != -1
   let g:ackprg="ack-grep -H --column"
@@ -84,13 +84,17 @@ noremap <C-\> :NERDTreeToggle<CR><C-w><C-w>
 
 let g:EasyMotion_leader_key = "<leader>"
 
-" Surround plugin customization (to check ASCII character do :echo char2nr("x"))
-autocmd FileType tex let b:surround_105 = "\\textit{\r\}"
-autocmd FileType tex let b:surround_98 = "\\textbf{\r\}"
-autocmd FileType tex let b:surround_115 = "\\textsc{\r\}"
-autocmd FileType tex let b:surround_{char2nr("p")} = "\\begin{figure\}\[p\]\n\\begin{center\}\r\\end{center\}\n\\end{figure\}"
+" Surround plugin customization
+autocmd FileType tex let b:surround_{char2nr("i")} = "\\textit{\r\}"
+autocmd FileType tex let b:surround_{char2nr("b")} = "\\textbf{\r\}"
+autocmd FileType tex let b:surround_{char2nr("s")} = "\\textsc{\r\}"
+autocmd FileType tex let b:surround_{char2nr("P")} = "\\part{\r\}"
+autocmd FileType tex let b:surround_{char2nr("C")} = "\\chapter{\r\}"
+autocmd FileType tex let b:surround_{char2nr("S")} = "\\section{\r\}"
+autocmd FileType tex let b:surround_{char2nr("f")} = "\\begin{figure\}\[p\]\n\\begin{center\}\r\\end{center\}\n\\end{figure\}"
 
 "let mapleader = ","
 nnoremap ; :
 cnoremap W w sudo:%
+noremap <S-Tab> <C-w>w
 nnoremap <C-p> :set invpaste paste?<CR>
