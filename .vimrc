@@ -80,7 +80,7 @@ let NERDTreeShowHidden=1
 autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 autocmd vimenter * wincmd l
-noremap <C-\> :NERDTreeToggle<CR><C-w><C-w>
+noremap <C-\> :NERDTreeToggle<CR><C-w>=
 
 let g:EasyMotion_leader_key = "<leader>"
 
@@ -91,7 +91,8 @@ autocmd FileType tex let b:surround_{char2nr("s")} = "\\textsc{\r\}"
 autocmd FileType tex let b:surround_{char2nr("P")} = "\\part{\r\}"
 autocmd FileType tex let b:surround_{char2nr("C")} = "\\chapter{\r\}"
 autocmd FileType tex let b:surround_{char2nr("S")} = "\\section{\r\}"
-autocmd FileType tex let b:surround_{char2nr("f")} = "\\begin{figure\}\[p\]\n\\begin{center\}\r\\end{center\}\n\\end{figure\}"
+autocmd FileType tex let b:surround_{char2nr("f")} = "\\begin{figure\}\[h\]\n\t\\begin{center\}\r\t\\end{center\}\n\\end{figure\}"
+autocmd FileType tex let b:surround_{char2nr("q")} = "\\begin{quote\}\r\\end{quote\}"
 
 "let mapleader = ","
 nnoremap ; :
