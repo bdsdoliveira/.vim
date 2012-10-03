@@ -24,3 +24,7 @@ To include new plugins as submodules (git repositories) do:
 
     cd ~/.vim
     git submodule add [git@github.com:account/reponame.git bundle/reponame]
+
+  To update all submodules, execute the following at the root of the repository (~/.vim):
+
+    git submodule foreach git pull origin master
