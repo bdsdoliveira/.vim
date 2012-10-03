@@ -9,6 +9,8 @@ set wildignore=*.aux,*.log,*.swp
 set history=4096
 set undolevels=4096
 
+set autowrite
+set autochdir
 set number
 set title
 set ruler
@@ -93,6 +95,9 @@ autocmd FileType tex let b:surround_{char2nr("C")} = "\\chapter{\r\}"
 autocmd FileType tex let b:surround_{char2nr("S")} = "\\section{\r\}"
 autocmd FileType tex let b:surround_{char2nr("f")} = "\\begin{figure\}\[h\]\n\t\\begin{center\}\r\t\\end{center\}\n\\end{figure\}"
 autocmd FileType tex let b:surround_{char2nr("q")} = "\\begin{quote\}\r\\end{quote\}"
+autocmd FileType tex let b:surround_{char2nr("v")} = "\\begin{verse\}\r\\end{verse\}"
+autocmd FileType tex let b:surround_{char2nr("r")} = "{\\raggedright\r\\par\}"
+autocmd FileType tex let b:surround_{char2nr("l")} = "{\\raggedleft\r\\par\}"
 
 "let mapleader = ","
 nnoremap ; :
