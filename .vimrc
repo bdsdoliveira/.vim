@@ -18,7 +18,7 @@ set laststatus=2
 set mousehide
 "set clipboard=unnamed,unnamedplus,autoselect
 "set mouse=a
-set timeoutlen=400
+set timeoutlen=300
 set autowrite
 set wrap
 set scrolloff=10
@@ -58,32 +58,34 @@ set statusline+=%<%P                         " file position
 set cursorline
 hi CursorLine cterm=NONE ctermbg=black
 
+" Keep cursor position after exiting buffer
 au BufReadPost * if line ("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 call pathogen#infect()
 call pathogen#helptags()
 
-set omnifunc=syntaxcomplete#Complete
-set completeopt=menuone,menu,longest,preview
+"set omnifunc=syntaxcomplete#Complete
+"set completeopt=menuone,menu,longest,preview
 "inoremap <C-?> <C-x><C-o>
 
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_camel_case_completion = 1
+"let g:neocomplcache_enable_at_startup = 1
+"let g:neocomplcache_enable_smart_case = 1
+"let g:neocomplcache_enable_camel_case_completion = 1
 "let g:neocomplcache_enable_underbar_completion = 1
 "let g:neocomplcache_min_syntax_length = 2
 "let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
-if match(system('lsb_release -is'), "Ubuntu") != -1
-  let g:ackprg="ack-grep -H --column"
-endif
+"if match(system('lsb_release -is'), "Ubuntu") != -1
+"  let g:ackprg="ack-grep -H --column"
+"endif
 
-let NERDTreeShowHidden=1
-autocmd vimenter * NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-autocmd vimenter * wincmd l
-noremap <C-\> :NERDTreeToggle<CR><C-w>=
+"let NERDTreeShowHidden=1
+"autocmd vimenter * NERDTree
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+"autocmd vimenter * wincmd l
+"noremap <C-\> :NERDTreeToggle<CR><C-w>=
 
+" EasyMotion usage: \ + f + <param>
 let g:EasyMotion_leader_key = "<leader>"
 
 " Surround plugin customization
@@ -98,9 +100,9 @@ autocmd FileType tex let b:surround_{char2nr("q")} = "\\begin{quote\}\r\\end{quo
 autocmd FileType tex let b:surround_{char2nr("v")} = "\\begin{verse\}\r\\end{verse\}"
 autocmd FileType tex let b:surround_{char2nr("r")} = "{\\raggedright\r\\par\}"
 autocmd FileType tex let b:surround_{char2nr("l")} = "{\\raggedleft\r\\par\}"
+autocmd FileType tex let b:surround_{char2nr("e")} = "\\epigraph{\r\}"
 
 "let mapleader = ","
 nnoremap ; :
-cnoremap W w sudo:%
 noremap <S-Tab> <C-w>w
 nnoremap <C-p> :set invpaste paste?<CR>
